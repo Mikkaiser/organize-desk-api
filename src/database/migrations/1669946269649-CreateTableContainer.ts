@@ -46,7 +46,7 @@ export class CreateTableContainer1669946269649 implements MigrationInterface {
     name: 'fk_customer_container_id',
     columnNames: ['customer_id'],
     referencedColumnNames: ['id'],
-    referencedTableName: 'customer',
+    referencedTableName: 'customers',
     onDelete: 'CASCADE',
   });
 

@@ -9,7 +9,7 @@ export class CreateTableContainerHandling1669946310357
   implements MigrationInterface
 {
   private containerHandlingTable = new Table({
-    name: 'containers',
+    name: 'container_handlings',
     columns: [
       {
         name: 'id',
@@ -50,7 +50,7 @@ export class CreateTableContainerHandling1669946310357
     name: 'fk_container_container_handling_id',
     columnNames: ['container_id'],
     referencedColumnNames: ['id'],
-    referencedTableName: 'container',
+    referencedTableName: 'containers',
     onDelete: 'CASCADE',
   });
 
