@@ -1,3 +1,4 @@
+import { ContainerHandlingEntity } from './../modules/container-handling/entities/container-handling.entity';
 import { ContainerEntity } from './../modules/container/entities/container.entity';
 import { CustomerEntity } from './../modules/customer/entities/customer.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
@@ -20,7 +21,7 @@ export const options: DataSourceOptions = {
     CreateTableContainer1669946269649,
     CreateTableContainerHandling1669946310357,
   ],
-  entities: [CustomerEntity, ContainerEntity],
+  entities: [CustomerEntity, ContainerEntity, ContainerHandlingEntity],
   synchronize: false,
 };
 
