@@ -6,7 +6,9 @@ import {
   Patch,
   Param,
   Delete,
+  Res,
 } from '@nestjs/common';
+import { Response } from 'express';
 import { ContainerHandlingService } from './container-handling.service';
 import { CreateContainerHandlingDto } from './dto/create-container-handling.dto';
 import { UpdateContainerHandlingDto } from './dto/update-container-handling.dto';
@@ -20,6 +22,12 @@ export class ContainerHandlingController {
   @Post()
   create(@Body() createContainerHandlingDto: CreateContainerHandlingDto) {
     return this.containerHandlingService.create(createContainerHandlingDto);
+  }
+
+  @Get('report')
+  generateReport(@Res() response: Response): any {
+    console.log('sasa');
+    this.containerHandlingService.generateReport(response);
   }
 
   @Get()

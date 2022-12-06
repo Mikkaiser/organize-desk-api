@@ -1,4 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ContainerEntity } from './../../container/entities/container.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ContainerHandlingInterface } from '../interfaces/container-handling.interface';
 
 @Entity('container_handlings')
@@ -14,4 +22,8 @@ export class ContainerHandlingEntity implements ContainerHandlingInterface {
 
   @Column({ name: 'container_id' })
   containerId: number;
+
+  @ManyToOne(() => ContainerEntity, (container) => container.containerHandlings)
+  @JoinColumn({ name: 'container_id' })
+  container: ContainerEntity;
 }
