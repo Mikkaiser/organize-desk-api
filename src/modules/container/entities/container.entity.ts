@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ContainerHandlingEntity } from './../../container-handling/entities/container-handling.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ContainerCategory } from '../enums/container-category.enum';
 import { ContainerType } from '../enums/container-type.enum';
 import { ContainerInterface } from '../interfaces/container.interface';
@@ -13,6 +20,12 @@ export class ContainerEntity implements ContainerInterface {
 
   @Column({ name: 'customer_id' })
   customerId: number;
+
+  @OneToMany(
+    () => ContainerHandlingEntity,
+    (containerHandling) => containerHandling.container,
+  )
+  containerHandlings: ContainerHandlingEntity[];
 
   @Column()
   type: ContainerType;
