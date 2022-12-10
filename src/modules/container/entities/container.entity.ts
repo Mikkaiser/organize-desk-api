@@ -18,8 +18,8 @@ export class ContainerEntity implements ContainerInterface {
   @Column()
   code: string;
 
-  @Column({ name: 'customer_id' })
-  customerId: number;
+  @Column({ name: 'customer_cpf' })
+  customerCpf: string;
 
   @OneToMany(
     () => ContainerHandlingEntity,

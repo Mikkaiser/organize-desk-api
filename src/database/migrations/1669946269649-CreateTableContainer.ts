@@ -22,8 +22,9 @@ export class CreateTableContainer1669946269649 implements MigrationInterface {
         length: '11',
       },
       {
-        name: 'customer_id',
-        type: 'integer',
+        name: 'customer_cpf',
+        type: 'varchar',
+        length: '255',
       },
       {
         name: 'type',
@@ -42,27 +43,11 @@ export class CreateTableContainer1669946269649 implements MigrationInterface {
     ],
   });
 
-  private customerIdForeignKey = new TableForeignKey({
-    name: 'fk_customer_container_id',
-    columnNames: ['customer_id'],
-    referencedColumnNames: ['id'],
-    referencedTableName: 'customers',
-    onDelete: 'CASCADE',
-  });
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(this.containerTable);
-    await queryRunner.createForeignKey(
-      this.containerTable,
-      this.customerIdForeignKey,
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable(this.containerTable);
-    await queryRunner.dropForeignKey(
-      this.containerTable,
-      this.customerIdForeignKey,
-    );
   }
 }
