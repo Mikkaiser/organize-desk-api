@@ -6,7 +6,6 @@ import { AppService } from './app.service';
 import DatabaseModule from './database/database.module';
 import { CustomerModule } from './modules/customer/customer.module';
 import { ContainerHandlingModule } from './modules/container-handling/container-handling.module';
-
 @Module({
   imports: [
     ConfigModule.forRoot({

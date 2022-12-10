@@ -8,6 +8,8 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
       - '3306:3306'
+    volumes:
+      - ./src/database/mysql:/var/lib/mysql
 
   api:
     image: organize-desk-api-image
